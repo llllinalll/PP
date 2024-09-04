@@ -207,4 +207,202 @@ else
     }
 }
 
+////Задание 10
+//Console.WriteLine("Введите число:");
+//double a = Convert.ToDouble(Console.ReadLine());
+//Console.WriteLine("Введите процент :");
+//double z = Convert.ToDouble(Console.ReadLine());
+//Console.WriteLine($"{z}% от {a} равен {(a / 100) * z}");
+
+//Задание 11
+//Console.WriteLine("Введите сумму:");
+//double sum = Convert.ToDouble(Console.ReadLine());
+//Console.WriteLine("Выбор: \n1. Евро в рубли\n2. Рубли в евро");
+//int h = Convert.ToInt32(Console.ReadLine());
+//if (h == 1)
+//{
+//    Console.WriteLine(sum * 97.81);
+//}
+//else
+//if (h == 2)
+//{
+//    Console.WriteLine(sum / 97.81);
+//}
+
+//Задание 12
+
+//Console.WriteLine("Рандомные числа:");
+//int[] a = new int[10];
+
+//Random random = new Random();
+//for (int i = 0; i < 10; i++)
+//{
+//    a[i] = random.Next(1, 100);
+//    Console.WriteLine($"Число {i + 1}: {a[i]}"); // Выводим каждое сгенерированное число
+//}
+
+//int min = a.Min();
+//int indexMin = Array.IndexOf(a, min);
+//Console.WriteLine("Минимальное:" + min);
+//Console.WriteLine("Индекс минимального:" + indexMin);
+
+
+//int max = a.Max();
+//int indexMax = Array.IndexOf(a, max);
+//Console.WriteLine("Максимальное:" + max);
+//Console.WriteLine("Индекс максимального:" + indexMax);
+
+// Задание 13
+//int[] a = new int[10];
+
+//Random random = new Random();
+//for (int i = 0; i < 10; i++)
+//{
+//    a[i] = random.Next(1, 100);
+//}
+
+//Console.WriteLine("Исходный массив:");
+//PrintArray(a);
+
+//Console.WriteLine("\nСортировка по возрастанию (пузырьком):");
+//BubbleSort(a, true);
+//PrintArray(a);
+
+//Console.WriteLine("\nСортировка по убыванию (пузырьком):");
+//BubbleSort(a, false);
+//PrintArray(a);
+
+//Console.WriteLine("\nСортировка по возрастанию (вставками):");
+//InsertionSort(a, true);
+//PrintArray(a);
+
+//Console.WriteLine("\nСортировка по убыванию (вставками):");
+//InsertionSort(a, false);
+//PrintArray(a);
+
+
+//// Метод для сортировки пузырьком
+//static void BubbleSort(int[] a, bool g)
+//{
+//    int n = a.Length;
+//    for (int i = 0; i < n - 1; i++)
+//    {
+//        for (int j = 0; j < n - i - 1; j++)
+//        {
+//            if ((g && a[j] > a[j + 1]) || (!g && a[j] < a[j + 1]))
+//            {
+//                int t = a[j];
+//                a[j] = a[j + 1];
+//                a[j + 1] = t;
+//            }
+//        }
+//    }
+//}
+
+//// Метод для сортировки вставками
+//static void InsertionSort(int[] a, bool g)
+//{
+//    int n = a.Length;
+//    for (int i = 1; i < n; i++)
+//    {
+//        int k = a[i];
+//        int j = i - 1;
+
+//        while (j >= 0 && ((g && a[j] > k) || (!g && a[j] < k)))
+//        {
+//            a[j + 1] = a[j];
+//            j = j - 1;
+//        }
+//        a[j + 1] = k;
+//    }
+//}
+
+//// Метод для вывода массива
+//static void PrintArray(int[] a)
+//{
+//    Console.WriteLine(string.Join(", ", a));
+//}
+
+// Задание 14
+
+//Console.WriteLine("Рандомные числа:");
+//int[] a = new int[10];
+
+//Random random = new Random();
+//for (int i = 0; i < 10; i++)
+//{
+//    a[i] = random.Next(1, 100);
+//    Console.WriteLine($"Число {i + 1}: {a[i]}"); // Выводим каждое сгенерированное число
+//}
+//Console.WriteLine("Введите элемент для поиска:");
+//int m = int.Parse(Console.ReadLine());
+
+//int index = Array.IndexOf(a, m);
+
+//if (index >= 0)
+//{
+//    Console.WriteLine($"Число {m} найдено на индексе {index}.");
+
+//}
+//else
+//{
+//    Console.WriteLine("Число не найдено.");
+//}
+
+//Задание 15
+
+//Console.WriteLine("Рандомные числа:");
+//int[] a = new int[10];
+
+//Random random = new Random();
+//for (int i = 0; i < 10; i++)
+//{
+//    a[i] = random.Next(1, 100);
+//    Console.WriteLine($"Число {i + 1}: {a[i]}"); // Выводим каждое сгенерированное число
+//}
+//Console.WriteLine("Массив в обратном порядке:");
+
+//// Вывод элементов массива в обратном порядке
+//for (int i = a.Length - 1; i >= 0; i--)
+//{
+//    Console.WriteLine(a[i]);
+//}
+
+//Задание 16
+
+    //    int[,] A = { { 1, 2 }, { 3, 4 } }; int[,] B = { { 5, 6 }, { 7, 8 } };
+    //    // Сложение
+    //    Console.WriteLine("Сложение:"); PrintMatrix(Add(A, B));
+    //    // Вычитание
+    //    Console.WriteLine("\nВычитание:"); PrintMatrix(Subtract(A, B));
+    //    // Умножение
+    //    Console.WriteLine("\nУмножение:"); PrintMatrix(Multiply(A, B));
+    //    // Транспонирование
+    //    Console.WriteLine("\nТранспонирование A:"); PrintMatrix(Transpose(A));
+    //    Console.WriteLine("\nТранспонирование B:"); PrintMatrix(Transposeу(B));
+    
+    //static int[,] Add(int[,] A, int[,] B) => new int[,]
+    //    {             { A[0, 0] + B[0, 0], A[0, 1] + B[0, 1] },
+    //        { A[1, 0] + B[1, 0], A[1, 1] + B[1, 1] }         };
+    //static int[,] Subtract(int[,] A, int[,] B) =>
+    //    new int[,]         {
+    //        { A[0, 0] - B[0, 0], A[0, 1] - B[0, 1] },             { A[1, 0] - B[1, 0], A[1, 1] - B[1, 1] }
+    //    };
+    //static int[,] Multiply(int[,] A, int[,] B) => new int[,]
+    //    {             { A[0, 0] * B[0, 0] + A[0, 1] * B[1, 0], A[0, 0] * B[0, 1] + A[0, 1] * B[1, 1] },
+    //        { A[1, 0] * B[0, 0] + A[1, 1] * B[1, 0], A[1, 0] * B[0, 1] + A[1, 1] * B[1, 1] }         };
+    //static int[,] Transpose(int[,] A) =>
+    //    new int[,]         {
+    //        { A[0, 0], A[1, 0] },             { A[0, 1], A[1, 1] }
+    //    };
+    //static int[,] Transposeу(int[,] B) =>
+    //    new int[,]         {
+    //        { B[0, 0], B[1, 0] },             { B[0, 1], B[1, 1] }
+    //    };
+    //static void PrintMatrix(int[,] matrix)
+    //{
+    //    Console.WriteLine($"{matrix[0, 0]} {matrix[0, 1]}"); Console.WriteLine($"{matrix[1, 0]} {matrix[1, 1]}");
+    //}
+
+
 
