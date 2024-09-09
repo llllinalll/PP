@@ -404,5 +404,245 @@ else
     //    Console.WriteLine($"{matrix[0, 0]} {matrix[0, 1]}"); Console.WriteLine($"{matrix[1, 0]} {matrix[1, 1]}");
     //}
 
+//17 задание
+
+
+//Console.WriteLine("Введите число в десятичной системе:");
+//int n = int.Parse(Console.ReadLine());
+
+//// Перевод в другие системы счисления
+//string b = Convert.ToString(n, 2);
+//string o = Convert.ToString(n, 8);
+//string l = Convert.ToString(n, 16);
+
+//Console.WriteLine($"Двоичная: {b}");
+//Console.WriteLine($"Восьмеричная: {o}");
+//Console.WriteLine($"Шестнадцатеричная: {l.ToUpper()}");
+
+
+// 18 задание
+
+//Console.WriteLine("Введите количество уровней пирамиды: ");
+//int s = int.Parse(Console.ReadLine());
+//Console.WriteLine("Пирамида:");
+
+//for (int i = 1; i <= s; i++)
+//{
+//    Печатаем пробелы перед числами
+//    for (int j = 1; j <= s - i; j++)
+//    {
+//        Console.Write(" ");
+//    }
+
+//    Печатаем числа
+//    for (int k = 1; k <= i; k++)
+//    {
+//        Console.Write(k);
+//    }
+
+//    Печатаем числа в обратном порядке
+//    for (int l = i - 1; l >= 1; l--)
+//    {
+//        Console.Write(l);
+//    }
+
+//    Console.WriteLine();
+//}
+
+//19 Задание
+
+//// Ввод строки
+//Console.WriteLine("Введите строку: ");
+//string g = Console.ReadLine();
+
+//// Ввод подстроки
+//Console.WriteLine("Введите подстроку для поиска: ");
+//string n = Console.ReadLine();
+
+//// Поиск индекса подстроки
+//int index = g.IndexOf(n);
+
+//// Проверка и вывод результата
+//if (index != -1)
+//{
+//    Console.WriteLine($"Подстрока найдена на позиции: {index}");
+//}
+//else
+//{
+//    Console.WriteLine("Подстрока не найдена.");
+//}
+
+
+//20 задание
+
+
+//Console.WriteLine("Введите строку с лишними пробелами: ");
+//string inputString = Console.ReadLine();
+
+//// Разделение строки по пробелам, удаление пустых частей и объединение с одним пробелом
+//string resultString = string.Join(" ", inputString.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries));
+
+//// Вывод результата
+//Console.WriteLine($"Строка после удаления лишних пробелов: \n'{resultString}'");
+
+
+// 21 Задание
+
+//Console.WriteLine("Введите первую дату (ГГГГ-ММ-ДД): ");
+//DateTime date1 = DateTime.Parse(Console.ReadLine());
+
+//// Ввод второй даты
+//Console.WriteLine("Введите вторую дату (ГГГГ-ММ-ДД): ");
+//DateTime date2 = DateTime.Parse(Console.ReadLine());
+
+//// Вычисление разницы в днях
+//int daysDifference = Math.Abs((date2 - date1).Days);
+
+//// Вывод результата
+//Console.WriteLine($"Количество дней между датами: {daysDifference}");
+
+
+// 22 Задание
+//using System.Text.RegularExpressions;
+
+//Console.WriteLine("Введите номер телефона (например, +7 (123) 456-78-90):");
+//string phoneNumber = Console.ReadLine();
+//if (IsValidRussianPhoneNumber(phoneNumber))
+//{
+//    Console.WriteLine("Номер телефона введен корректно.");
+//}
+//else
+//{
+//    Console.WriteLine("Номер телефона введен некорректно.");
+//}
+
+//Console.WriteLine("Введите e-mail (например, example@example.com):");
+//string email = Console.ReadLine();
+//if (IsValidEmail(email))
+//{
+//    Console.WriteLine("E-mail введен корректно.");
+//}
+//else
+//{
+//    Console.WriteLine("E-mail введен некорректно.");
+//}
+
+
+//    static bool IsValidRussianPhoneNumber(string phoneNumber)
+//{
+//    // Регулярное выражение для проверки российского номера телефона
+//    string pattern = @"^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$";
+//    return Regex.IsMatch(phoneNumber, pattern);
+//}
+
+//static bool IsValidEmail(string email)
+//{
+//    // Регулярное выражение для проверки e-mail
+//    string pattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+//    return Regex.IsMatch(email, pattern);
+//}
+
+// 23 Задание
+
+//using System.Text;
+
+//        Console.WriteLine("Введите длину пароля:");
+//        if (int.TryParse(Console.ReadLine(), out int length) && length > 0)
+//        {
+//            string password = GenerateRandomPassword(length);
+//            Console.WriteLine($"Сгенерированный пароль: {password}");
+//        }
+//        else
+//        {
+//            Console.WriteLine("Ошибка: введите положительное целое число.");
+//        }
+
+
+//    static string GenerateRandomPassword(int length)
+//    {
+//        const string upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_-+=<>?/[]{}|";
+
+
+//        string allChars = upperCase;
+//        StringBuilder password = new StringBuilder(length);
+//        Random random = new Random();
+
+//        for (int i = 0; i < length; i++)
+//        {
+//            char randomChar = allChars[random.Next(allChars.Length)];
+//            password.Append(randomChar);
+//        }
+
+//        return password.ToString();
+//    }
+
+
+// 24 Задание
+
+//decimal totalAmount = 0m;
+//string input;
+//const decimal vatRate = 0.20m; // НДС 20%
+
+//Console.WriteLine("Введите список покупок и их стоимость. Введите 'done', чтобы завершить ввод.");
+
+//while (true)
+//{
+//    Console.Write("Введите название товара (или 'done' для завершения): ");
+//    input = Console.ReadLine();
+//    if (input.ToLower() == "done") break;
+
+//    Console.Write("Введите стоимость товара (или 'done' для завершения): ");
+//    input = Console.ReadLine();
+//    if (input.ToLower() == "done") break;
+
+//    if (decimal.TryParse(input, out decimal itemPrice) && itemPrice >= 0)
+//    {
+//        totalAmount += itemPrice;
+//    }
+//    else
+//    {
+//        Console.WriteLine("Некорректная стоимость. Попробуйте снова.");
+//    }
+//}
+
+//decimal vatAmount = totalAmount * vatRate;
+//decimal totalWithVat = totalAmount + vatAmount;
+
+//Console.WriteLine("\n--- Чек ---");
+
+//Console.WriteLine($"Итоговая сумма: {totalAmount:C}");
+//Console.WriteLine($"НДС (20%): {vatAmount:C}");
+//Console.WriteLine($"Итог с НДС: {totalWithVat:C}");
+
+
+// 25 Задание 
+
+//using System;
+//using System.Linq;
+
+//class Program
+//{
+//    static void Main()
+//    {
+//        // Ввод текста
+//        Console.WriteLine("Введите текст:");
+//        string input = Console.ReadLine();
+
+//        // Разбиение текста на слова и подсчет частоты
+//        var wordCount = input.ToLower()
+//                             .Split(new[] { ' ', ',', '.', '!', '?', ';', ':', '-', '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries)
+//                             .GroupBy(word => word)
+//                             .ToDictionary(group => group.Key, group => group.Count());
+
+//        // Вывод результата
+//        Console.WriteLine("\nЧастота слов:");
+//        foreach (var word in wordCount)
+//        {
+//            Console.WriteLine($"{word.Key}: {word.Value}");
+//        }
+//    }
+//}
+
+
 
 
