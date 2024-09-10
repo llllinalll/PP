@@ -1,4 +1,4 @@
-﻿////Задание 1
+////Задание 1
 //Console.WriteLine("Введите 1-ое число:");
 //double a = Convert.ToDouble(Console.ReadLine());
 //Console.WriteLine("Введите 2-ое число:");
@@ -173,39 +173,39 @@
 //}
 
 //Задание 9
-Console.WriteLine("Выберите единицу измерения: \n1. Длинна\n2. Вес");
-double s = double.Parse(Console.ReadLine());
+//Console.WriteLine("Выберите единицу измерения: \n1. Длинна\n2. Вес");
+//double s = double.Parse(Console.ReadLine());
 
-if (s == 1)
-{
-    Console.Write("Введите длину в метрах: ");
-    double m = double.Parse(Console.ReadLine());
-    Console.WriteLine("Выбор: \n1. мм\n2. см\n3. дм\n4. км");
-    int l = int.Parse(Console.ReadLine());
+//if (s == 1)
+//{
+//    Console.Write("Введите длину в метрах: ");
+//    double m = double.Parse(Console.ReadLine());
+//    Console.WriteLine("Выбор: \n1. мм\n2. см\n3. дм\n4. км");
+//    int l = int.Parse(Console.ReadLine());
 
-    switch (l)
-    {
-        case 1: Console.WriteLine($"{m * 1000} мм"); break;
-        case 2: Console.WriteLine($"{m * 100} см"); break;
-        case 3: Console.WriteLine($"{m * 10} дм"); break;
-        case 4: Console.WriteLine($"{m * 0.001} км"); break;
-    }
-}
-else
-{
-    Console.Write("Введите вес в киллограммах: ");
-    double e = double.Parse(Console.ReadLine());
-    Console.WriteLine("Выбор: \n1. мг\n2. гр\n3. тонны\n4. пуды");
-    int p = int.Parse(Console.ReadLine());
+//    switch (l)
+//    {
+//        case 1: Console.WriteLine($"{m * 1000} мм"); break;
+//        case 2: Console.WriteLine($"{m * 100} см"); break;
+//        case 3: Console.WriteLine($"{m * 10} дм"); break;
+//        case 4: Console.WriteLine($"{m * 0.001} км"); break;
+//    }
+//}
+//else
+//{
+//    Console.Write("Введите вес в киллограммах: ");
+//    double e = double.Parse(Console.ReadLine());
+//    Console.WriteLine("Выбор: \n1. мг\n2. гр\n3. тонны\n4. пуды");
+//    int p = int.Parse(Console.ReadLine());
 
-    switch (p)
-    {
-        case 1: Console.WriteLine($"{e * 1000000} мг"); break;
-        case 2: Console.WriteLine($"{e * 1000} гр"); break;
-        case 3: Console.WriteLine($"{e * 0,001} тонны"); break;
-        case 4: Console.WriteLine($"{e * 0.06105} пуды"); break;
-    }
-}
+//    switch (p)
+//    {
+//        case 1: Console.WriteLine($"{e * 1000000} мг"); break;
+//        case 2: Console.WriteLine($"{e * 1000} гр"); break;
+//        case 3: Console.WriteLine($"{e * 0,001} тонны"); break;
+//        case 4: Console.WriteLine($"{e * 0.06105} пуды"); break;
+//    }
+//}
 
 ////Задание 10
 //Console.WriteLine("Введите число:");
@@ -370,39 +370,39 @@ else
 
 //Задание 16
 
-    //    int[,] A = { { 1, 2 }, { 3, 4 } }; int[,] B = { { 5, 6 }, { 7, 8 } };
-    //    // Сложение
-    //    Console.WriteLine("Сложение:"); PrintMatrix(Add(A, B));
-    //    // Вычитание
-    //    Console.WriteLine("\nВычитание:"); PrintMatrix(Subtract(A, B));
-    //    // Умножение
-    //    Console.WriteLine("\nУмножение:"); PrintMatrix(Multiply(A, B));
-    //    // Транспонирование
-    //    Console.WriteLine("\nТранспонирование A:"); PrintMatrix(Transpose(A));
-    //    Console.WriteLine("\nТранспонирование B:"); PrintMatrix(Transposeу(B));
-    
-    //static int[,] Add(int[,] A, int[,] B) => new int[,]
-    //    {             { A[0, 0] + B[0, 0], A[0, 1] + B[0, 1] },
-    //        { A[1, 0] + B[1, 0], A[1, 1] + B[1, 1] }         };
-    //static int[,] Subtract(int[,] A, int[,] B) =>
-    //    new int[,]         {
-    //        { A[0, 0] - B[0, 0], A[0, 1] - B[0, 1] },             { A[1, 0] - B[1, 0], A[1, 1] - B[1, 1] }
-    //    };
-    //static int[,] Multiply(int[,] A, int[,] B) => new int[,]
-    //    {             { A[0, 0] * B[0, 0] + A[0, 1] * B[1, 0], A[0, 0] * B[0, 1] + A[0, 1] * B[1, 1] },
-    //        { A[1, 0] * B[0, 0] + A[1, 1] * B[1, 0], A[1, 0] * B[0, 1] + A[1, 1] * B[1, 1] }         };
-    //static int[,] Transpose(int[,] A) =>
-    //    new int[,]         {
-    //        { A[0, 0], A[1, 0] },             { A[0, 1], A[1, 1] }
-    //    };
-    //static int[,] Transposeу(int[,] B) =>
-    //    new int[,]         {
-    //        { B[0, 0], B[1, 0] },             { B[0, 1], B[1, 1] }
-    //    };
-    //static void PrintMatrix(int[,] matrix)
-    //{
-    //    Console.WriteLine($"{matrix[0, 0]} {matrix[0, 1]}"); Console.WriteLine($"{matrix[1, 0]} {matrix[1, 1]}");
-    //}
+//    int[,] A = { { 1, 2 }, { 3, 4 } }; int[,] B = { { 5, 6 }, { 7, 8 } };
+//    // Сложение
+//    Console.WriteLine("Сложение:"); PrintMatrix(Add(A, B));
+//    // Вычитание
+//    Console.WriteLine("\nВычитание:"); PrintMatrix(Subtract(A, B));
+//    // Умножение
+//    Console.WriteLine("\nУмножение:"); PrintMatrix(Multiply(A, B));
+//    // Транспонирование
+//    Console.WriteLine("\nТранспонирование A:"); PrintMatrix(Transpose(A));
+//    Console.WriteLine("\nТранспонирование B:"); PrintMatrix(Transposeу(B));
+
+//static int[,] Add(int[,] A, int[,] B) => new int[,]
+//    {             { A[0, 0] + B[0, 0], A[0, 1] + B[0, 1] },
+//        { A[1, 0] + B[1, 0], A[1, 1] + B[1, 1] }         };
+//static int[,] Subtract(int[,] A, int[,] B) =>
+//    new int[,]         {
+//        { A[0, 0] - B[0, 0], A[0, 1] - B[0, 1] },             { A[1, 0] - B[1, 0], A[1, 1] - B[1, 1] }
+//    };
+//static int[,] Multiply(int[,] A, int[,] B) => new int[,]
+//    {             { A[0, 0] * B[0, 0] + A[0, 1] * B[1, 0], A[0, 0] * B[0, 1] + A[0, 1] * B[1, 1] },
+//        { A[1, 0] * B[0, 0] + A[1, 1] * B[1, 0], A[1, 0] * B[0, 1] + A[1, 1] * B[1, 1] }         };
+//static int[,] Transpose(int[,] A) =>
+//    new int[,]         {
+//        { A[0, 0], A[1, 0] },             { A[0, 1], A[1, 1] }
+//    };
+//static int[,] Transposeу(int[,] B) =>
+//    new int[,]         {
+//        { B[0, 0], B[1, 0] },             { B[0, 1], B[1, 1] }
+//    };
+//static void PrintMatrix(int[,] matrix)
+//{
+//    Console.WriteLine($"{matrix[0, 0]} {matrix[0, 1]}"); Console.WriteLine($"{matrix[1, 0]} {matrix[1, 1]}");
+//}
 
 //17 задание
 
@@ -644,5 +644,853 @@ else
 //}
 
 
+
+//26 Задание
+
+//Console.WriteLine("Введите время в формате (ЧЧ:ММ)");
+//string a = Console.ReadLine();
+//DateTime p = DateTime.Parse(a);
+//Console.WriteLine("Введите время в формате (ЧЧ:ММ) для сложения или вычитания");
+//string s = Console.ReadLine();
+//DateTime o = DateTime.Parse(s);
+//Console.WriteLine("Выберите что вы хотите сделать: 1- Сложить минуты, 2- Сложить часы, 3-Вычесть часы, 4- Вычесть минуты");
+//int z = Convert.ToInt32(Console.ReadLine());
+//switch (z)
+//{
+//    case 1:
+//        var date = p.AddMinutes(o.Minute);
+//        Console.WriteLine($"{DateTime.Parse(date.ToString())}"); break;
+//    case 2:
+//        var date1 = p.AddHours(o.Hour);
+//        Console.WriteLine($"{DateTime.Parse(date1.ToString())}"); break;
+//    case 3:
+//        var date2 = p.Hour - o.Hour;
+//        Console.WriteLine($"{date2}"); break;
+//    case 4:
+//        var date3 = p.Minute - o.Minute;
+//        Console.WriteLine($"{date3}"); break;
+//}
+
+
+//27 Задание
+//using System;
+//using System.Text;
+//class Program
+//{
+//    static void Main()
+//    {
+//        Console.OutputEncoding = Encoding.UTF8;
+//        Console.WriteLine("Решение квадратного уравнения");        
+//        Console.Write("a = "); 
+//        var a = double.Parse(Console.ReadLine());
+//        Console.Write("b = ");
+//        var b = double.Parse(Console.ReadLine());
+//        Console.Write("c = ");
+//        var c = double.Parse(Console.ReadLine());
+//        double x1, x2;
+
+//        var discriminant = Math.Pow(b, 2) - 4 * a * c;
+//        if (discriminant < 0)
+//        {
+//            Console.WriteLine("Квадратное уравнение не имеет корней");
+//        }
+//        else
+//        {
+//            if (discriminant == 0) 
+//            {
+//                x1 = -b / (2 * a);
+//                x2 = x1;
+//            }
+//            else 
+//                 {
+//                x1 = (-b + Math.Sqrt(discriminant)) / (2 * a);
+//                x2 = (-b - Math.Sqrt(discriminant)) / (2 * a);
+//        }           
+//        Console.WriteLine($"x1 = {x1}; x2 = {x2}");
+//    }
+
+//    Console.WriteLine("Для выхода нажмите любую клавишу...");
+//        Console.ReadKey(true);    
+//       }
+//}
+
+//28 Задание
+
+//// Ввод коэффициентов уравнений
+//Console.WriteLine("Введите коэффициенты первого уравнения (a1, b1, c1):");
+//double a1 = Convert.ToDouble(Console.ReadLine());
+//double b1 = Convert.ToDouble(Console.ReadLine());
+//double c1 = Convert.ToDouble(Console.ReadLine());
+
+//Console.WriteLine("Введите коэффициенты второго уравнения (a2, b2, c2):");
+//double a2 = Convert.ToDouble(Console.ReadLine());
+//double b2 = Convert.ToDouble(Console.ReadLine());
+//double c2 = Convert.ToDouble(Console.ReadLine());
+
+//// Решение системы уравнений методом подстановки
+//// Если b1 не равен 0, решаем первое уравнение для y
+//if (b1 != 0)
+//{
+//    // Решаем первое уравнение для y
+//    double y = (c1 - a1 * (c2 - a2 * 0) / a2) / b1;
+
+//    // Подставляем найденное значение y во второе уравнение, чтобы найти x
+//    double x = (c1 - b1 * y) / a1;
+
+//    Console.WriteLine($"Решение системы уравнений: x = {x}, y = {y}");
+//}
+//else
+//{
+//    // Если b1 равно 0, решаем второе уравнение для y
+//    if (b2 != 0)
+//    {
+//        double y = (c2 - a2 * (c1 - a1 * 0) / a1) / b2;
+
+//        // Подставляем найденное значение y в первое уравнение, чтобы найти x
+//        double x = (c1 - b1 * y) / a1;
+
+//        Console.WriteLine($"Решение системы уравнений: x = {x}, y = {y}");
+//    }
+//    else
+//    {
+//        Console.WriteLine("Не удалось решить систему уравнений. Проверьте коэффициенты.");
+//    }
+//}
+
+//29 Задание
+
+
+//    // Получаем все диски на компьютере
+//    DriveInfo[] drives = DriveInfo.GetDrives();
+
+//    // Перебираем все диски и выводим информацию о каждом
+//    foreach (DriveInfo drive in drives)
+//    {
+//        Console.WriteLine($"Диск: {drive.Name}");
+
+//        if (drive.IsReady)
+//        {
+//            Console.WriteLine($"Файловая система: {drive.DriveFormat}");
+//            Console.WriteLine($"Размер: {FormatBytes(drive.TotalSize)}");
+//            Console.WriteLine($"Свободно: {FormatBytes(drive.AvailableFreeSpace)}");
+//            Console.WriteLine($"Использовано: {FormatBytes(drive.TotalSize - drive.AvailableFreeSpace)}");
+//        }
+//        else
+//        {
+//            Console.WriteLine("Диск не готов.");
+//        }
+
+//        Console.WriteLine(); // Пустая строка для разделения информации о дисках
+//    }
+
+
+//// Метод для форматирования байтов в читаемый формат
+//static string FormatBytes(long bytes)
+//{
+//    // Форматируем байты в ГБ, МБ, КБ или байты
+//    if (bytes >= 1L << 30) return $"{bytes >> 30} ГБ";
+//    if (bytes >= 1L << 20) return $"{bytes >> 20} МБ";
+//    if (bytes >= 1L << 10) return $"{bytes >> 10} КБ";
+//    return $"{bytes} байт";
+//}
+
+
+// 30 Задание 
+
+//using System;
+//using System.IO;
+
+//class Program
+//{
+//    static void Main()
+//    {
+//        while (true)
+//        {
+//            Console.Clear();
+//            Console.WriteLine("Выберите операцию:");
+//            Console.WriteLine("1. Создать файл");
+//            Console.WriteLine("2. Удалить файл");
+//            Console.WriteLine("3. Копировать файл");
+//            Console.WriteLine("4. Переместить файл");
+//            Console.WriteLine("5. Выйти");
+
+//            string choice = Console.ReadLine();
+
+//            switch (choice)
+//            {
+//                case "1":
+//                    CreateFile();
+//                    break;
+//                case "2":
+//                    DeleteFile();
+//                    break;
+//                case "3":
+//                    CopyFile();
+//                    break;
+//                case "4":
+//                    MoveFile();
+//                    break;
+//                case "5":
+//                    return;
+//                default:
+//                    Console.WriteLine("Неверный выбор.");
+//                    break;
+//            }
+//        }
+//    }
+
+//    static void CreateFile()
+//    {
+//        Console.Write("Введите путь к файлу: ");
+//        string path = Console.ReadLine();
+
+//        try
+//        {
+//            File.WriteAllText(path, ""); // Создаем пустой файл
+//            Console.WriteLine("Файл создан.");
+//        }
+//        catch (Exception ex)
+//        {
+//            Console.WriteLine($"Ошибка: {ex.Message}");
+//        }
+//    }
+
+//    static void DeleteFile()
+//    {
+//        Console.Write("Введите путь к файлу: ");
+//        string path = Console.ReadLine();
+
+//        try
+//        {
+//            if (File.Exists(path))
+//            {
+//                File.Delete(path);
+//                Console.WriteLine("Файл удален.");
+//            }
+//            else
+//            {
+//                Console.WriteLine("Файл не найден.");
+//            }
+//        }
+//        catch (Exception ex)
+//        {
+//            Console.WriteLine($"Ошибка: {ex.Message}");
+//        }
+//    }
+
+//    static void CopyFile()
+//    {
+//        Console.Write("Введите путь к исходному файлу: ");
+//        string sourcePath = Console.ReadLine();
+
+//        Console.Write("Введите путь к целевому файлу: ");
+//        string destPath = Console.ReadLine();
+
+//        try
+//        {
+//            if (File.Exists(sourcePath))
+//            {
+//                File.Copy(sourcePath, destPath, true);
+//                Console.WriteLine("Файл скопирован.");
+//            }
+//            else
+//            {
+//                Console.WriteLine("Исходный файл не найден.");
+//            }
+//        }
+//        catch (Exception ex)
+//        {
+//            Console.WriteLine($"Ошибка: {ex.Message}");
+//        }
+//    }
+
+//    static void MoveFile()
+//    {
+//        Console.Write("Введите путь к исходному файлу: ");
+//        string sourcePath = Console.ReadLine();
+
+//        Console.Write("Введите путь к новому файлу: ");
+//        string destPath = Console.ReadLine();
+
+//        try
+//        {
+//            if (File.Exists(sourcePath))
+//            {
+//                File.Move(sourcePath, destPath);
+//                Console.WriteLine("Файл перемещен.");
+//            }
+//            else
+//            {
+//                Console.WriteLine("Исходный файл не найден.");
+//            }
+//        }
+//        catch (Exception ex)
+//        {
+//            Console.WriteLine($"Ошибка: {ex.Message}");
+//        }
+//    }
+//}
+
+//31 Задание
+
+//using System;
+//using System.Collections.Generic;
+//using System.IO;
+//using Newtonsoft.Json;
+
+//class Program
+//{
+//    // Класс для представления данных
+//    public class Person
+//    {
+//        public int Id { get; set; }
+//        public string Name { get; set; }
+//        public int Age { get; set; }
+//    }
+
+//    static void Main()
+//    {
+//        // Путь к JSON-файлу
+//        string filePath = "pp.json";
+
+//        try
+//        {
+
+//            // Чтение и десериализация JSON-файла
+//            string json = File.ReadAllText(filePath);
+//            List<Person> people = JsonConvert.DeserializeObject<List<Person>>(json);
+
+//            // Вывод данных в формате таблицы
+//            Console.WriteLine("Id   Name      Age");
+//            Console.WriteLine("-----------------");
+//            foreach (var person in people)
+//            {
+//                Console.WriteLine($"{person.Id,-4} {person.Name,-8} {person.Age,2}");
+//            }
+//        }
+//        catch (Exception ex)
+//        {
+//            Console.WriteLine($"Ошибка: {ex.Message}");
+//        }
+//    }
+//}
+
+
+//32 Задание
+
+//using System;
+//using System.Collections.Generic;
+//using System.Xml.Linq;
+
+//class Program
+//{
+//    // Класс для представления данных
+//    public class Person
+//    {
+//        public int Id { get; set; }
+//        public string Name { get; set; }
+//        public int Age { get; set; }
+//    }
+
+//    static void Main()
+//    {
+//        // Путь к XML-файлу
+//        string filePath = "pp.xml";
+
+//        try
+//        {
+//            // Загрузка XML-файла
+//            XDocument doc = XDocument.Load(filePath);
+
+//            // Извлечение данных из XML в список объектов Person
+//            List<Person> people = new List<Person>();
+
+//            foreach (XElement element in doc.Descendants("Person"))
+//            {
+//                Person person = new Person
+//                {
+//                    Id = (int)element.Element("Id"),
+//                    Name = (string)element.Element("Name"),
+//                    Age = (int)element.Element("Age")
+//                };
+//                people.Add(person);
+//            }
+
+//            // Вывод данных в формате таблицы
+//            Console.WriteLine("Id   Name      Age");
+//            Console.WriteLine("-----------------");
+//            foreach (var person in people)
+//            {
+//                Console.WriteLine($"{person.Id,-4} {person.Name,-8} {person.Age,2}");
+//            }
+//        }
+//        catch (Exception ex)
+//        {
+//            Console.WriteLine($"Ошибка: {ex.Message}");
+//        }
+//    }
+//}
+
+
+//33 Задание
+
+//using System;
+//using System.IO;
+
+//class Program
+//{
+//    static string filePath = "tasks.txt";
+
+//    static void Main()
+//    {
+//        // Создание файла, если его нет
+//        if (!File.Exists(filePath))
+//        {
+//            File.Create(filePath).Close();
+//        }
+
+//        while (true)
+//        {
+//            Console.Clear();
+//            Console.WriteLine("1. Просмотреть задачи");
+//            Console.WriteLine("2. Добавить задачу");
+//            Console.WriteLine("3. Удалить задачу");
+//            Console.WriteLine("4. Отметить задачу как выполненную");
+//            Console.WriteLine("5. Выйти");
+
+//            string choice = Console.ReadLine();
+
+//            switch (choice)
+//            {
+//                case "1":
+//                    ViewTasks();
+//                    break;
+//                case "2":
+//                    AddTask();
+//                    break;
+//                case "3":
+//                    DeleteTask();
+//                    break;
+//                case "4":
+//                    MarkTaskAsDone();
+//                    break;
+//                case "5":
+//                    return;
+//                default:
+//                    Console.WriteLine("Неверный выбор.");
+//                    break;
+//            }
+//        }
+//    }
+
+//    static void ViewTasks()
+//    {
+//        Console.Clear();
+//        string[] tasks = File.ReadAllLines(filePath);
+//        for (int i = 0; i < tasks.Length; i++)
+//        {
+//            Console.WriteLine($"{i + 1}. {tasks[i]}");
+//        }
+//        Console.WriteLine("Нажмите любую клавишу для продолжения...");
+//        Console.ReadKey();
+//    }
+
+//    static void AddTask()
+//    {
+//        Console.Clear();
+//        Console.Write("Введите новую задачу: ");
+//        string task = Console.ReadLine();
+//        File.AppendAllText(filePath, $"[ ] {task}\n");
+//        Console.WriteLine("Задача добавлена. Нажмите любую клавишу для продолжения...");
+//        Console.ReadKey();
+//    }
+
+//    static void DeleteTask()
+//    {
+//        Console.Clear();
+//        Console.Write("Введите номер задачи для удаления: ");
+//        if (int.TryParse(Console.ReadLine(), out int index) && index > 0)
+//        {
+//            string[] tasks = File.ReadAllLines(filePath);
+//            if (index <= tasks.Length)
+//            {
+//                File.WriteAllLines(filePath, RemoveTask(tasks, index - 1));
+//                Console.WriteLine("Задача удалена. Нажмите любую клавишу для продолжения...");
+//            }
+//            else
+//            {
+//                Console.WriteLine("Неверный номер задачи.");
+//            }
+//        }
+//        else
+//        {
+//            Console.WriteLine("Неверный ввод.");
+//        }
+//        Console.ReadKey();
+//    }
+
+//    static void MarkTaskAsDone()
+//    {
+//        Console.Clear();
+//        Console.Write("Введите номер задачи, чтобы отметить её как выполненную: ");
+//        if (int.TryParse(Console.ReadLine(), out int index) && index > 0)
+//        {
+//            string[] tasks = File.ReadAllLines(filePath);
+//            if (index <= tasks.Length)
+//            {
+//                string task = tasks[index - 1];
+//                if (!task.StartsWith("[x] "))
+//                {
+//                    tasks[index - 1] = "[x] " + task.Substring(4);
+//                    File.WriteAllLines(filePath, tasks);
+//                    Console.WriteLine("Задача отмечена как выполненная.");
+//                }
+//                else
+//                {
+//                    Console.WriteLine("Задача уже выполнена.");
+//                }
+//            }
+//            else
+//            {
+//                Console.WriteLine("Неверный номер задачи.");
+//            }
+//        }
+//        else
+//        {
+//            Console.WriteLine("Неверный ввод.");
+//        }
+//        Console.ReadKey();
+//    }
+
+//    static string[] RemoveTask(string[] tasks, int index)
+//    {
+//        if (index >= 0 && index < tasks.Length)
+//        {
+//            var newList = new System.Collections.Generic.List<string>(tasks);
+//            newList.RemoveAt(index);
+//            return newList.ToArray();
+//        }
+//        return tasks;
+//    }
+//}
+
+
+//34 Задание 
+
+//using System;
+//using System.IO;
+
+//class Program
+//{
+//    static void Main()
+//    {
+//        
+//        string inputFilePath = "input.txt";
+//        string outputFilePath = "output.txt";
+//        Создание файла, если его нет
+
+//        try
+//        {
+//          
+//            string text = File.ReadAllText(inputFilePath);
+
+//        
+//            string convertedText = ConvertCase(text);
+
+//     
+//            File.WriteAllText(outputFilePath, convertedText);
+
+//            Console.WriteLine("Текст успешно преобразован и записан в файл.");
+//        }
+//        catch (Exception ex)
+//        {
+//            Console.WriteLine($"Ошибка: {ex.Message}");
+//        }
+//    }
+
+//    static string ConvertCase(string input)
+//    {
+
+//        return string.Concat(Array.ConvertAll(input.ToCharArray(), c =>
+//            char.IsUpper(c) ? char.ToLower(c) : char.ToUpper(c)));
+//    }
+//}
+
+
+//35  Задание
+
+//using System;
+//using System.Collections.Generic;
+//using System.Globalization;
+//using System.IO;
+
+//class Program
+//{
+//    static string notesFilePath = "notes.txt";
+//    static Dictionary<int, string> notes = new Dictionary<int, string>();
+
+//    static void Main()
+//    {
+//        LoadNotes();
+
+//        while (true)
+//        {
+//            Console.Clear();
+//            ShowCalendar();
+//            Console.WriteLine("\nВведите день для добавления/просмотра заметки (или нажмите Enter для выхода):");
+//            string input = Console.ReadLine();
+
+//            if (string.IsNullOrEmpty(input))
+//                break;
+
+//            if (int.TryParse(input, out int day) && day >= 1 && day <= DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month))
+//            {
+//                Console.WriteLine("Введите заметку (оставьте пустым для удаления заметки):");
+//                string note = Console.ReadLine();
+
+//                if (string.IsNullOrEmpty(note))
+//                    notes.Remove(day);
+//                else
+//                    notes[day] = note;
+
+//                SaveNotes();
+//            }
+//            else
+//            {
+//                Console.WriteLine("Неверный день.");
+//            }
+//        }
+//    }
+
+//    static void ShowCalendar()
+//    {
+//        DateTime now = DateTime.Now;
+//        int year = now.Year;
+//        int month = now.Month;
+//        DateTime firstDay = new DateTime(year, month, 1);
+//        int daysInMonth = DateTime.DaysInMonth(year, month);
+//        int startDay = (int)firstDay.DayOfWeek;
+//        if (startDay == 0) startDay = 6; // Пн-Вс
+
+//        Console.WriteLine($"Календарь на {now.ToString("MMMM yyyy", CultureInfo.CurrentCulture)}");
+//        Console.WriteLine("Пн Вт Ср Чт Пт Сб Вс");
+
+//        for (int i = 0; i < startDay; i++)
+//            Console.Write("   ");
+
+//        for (int day = 1; day <= daysInMonth; day++)
+//        {
+//            if (notes.ContainsKey(day))
+//                Console.ForegroundColor = ConsoleColor.Green;
+
+//            Console.Write($"{day,2} ");
+//            Console.ResetColor();
+
+//            if ((day + startDay) % 7 == 0)
+//                Console.WriteLine();
+//        }
+//        Console.WriteLine();
+//    }
+
+//    static void LoadNotes()
+//    {
+//        if (File.Exists(notesFilePath))
+//        {
+//            foreach (var line in File.ReadAllLines(notesFilePath))
+//            {
+//                var parts = line.Split(':', 2);
+//                if (parts.Length == 2 && int.TryParse(parts[0], out int day))
+//                    notes[day] = parts[1];
+//            }
+//        }
+//    }
+
+//    static void SaveNotes()
+//    {
+//        File.WriteAllLines(notesFilePath, notes.Select(n => $"{n.Key}:{n.Value}"));
+//    }
+//}
+
+//
+//36 Задание 
+
+//using System;
+//using System.Collections.Generic;
+//using System.IO;
+//using System.Linq;
+
+//class Program
+//{
+//    static string dataFilePath = "students.txt";
+//    static Dictionary<string, Student> students = new Dictionary<string, Student>();
+//
+//    static void Main()
+//    {
+//        LoadData();
+
+//        while (true)
+//        {
+//            Console.Clear();
+//            Console.WriteLine("1. Просмотреть студентов");
+//            Console.WriteLine("2. Добавить студента");
+//            Console.WriteLine("3. Добавить оценку");
+//            Console.WriteLine("4. Удалить студента");
+//            Console.WriteLine("5. Выйти");
+
+//            string choice = Console.ReadLine();
+
+//            switch (choice)
+//            {
+//                case "1":
+//                    ViewStudents();
+//                    break;
+//                case "2":
+//                    AddStudent();
+//                    break;
+//                case "3":
+//                    AddGrade();
+//                    break;
+//                case "4":
+//                    RemoveStudent();
+//                    break;
+//                case "5":
+//                    SaveData();
+//                    return;
+//                default:
+//                    Console.WriteLine("Неверный выбор.");
+//                    break;
+//            }
+//        }
+//    }
+
+//    static void LoadData()
+//    {
+//        if (File.Exists(dataFilePath))
+//        {
+//            var lines = File.ReadAllLines(dataFilePath);
+//            foreach (var line in lines)
+//            {
+//                var parts = line.Split(';');
+//                if (parts.Length < 2)
+//                    continue;
+
+//                var studentId = parts[0];
+//                var studentName = parts[1];
+//                var student = new Student { Id = studentId, Name = studentName };
+
+//                for (int i = 2; i < parts.Length; i += 2)
+//                {
+//                    if (i + 1 < parts.Length)
+//                    {
+//                        var subject = parts[i];
+//                        if (int.TryParse(parts[i + 1], out int grade))
+//                        {
+//                            student.Grades[subject] = grade;
+//                        }
+//                    }
+//                }
+
+//                students[studentId] = student;
+//            }
+//        }
+//    }
+//
+//    static void SaveData()
+//    {
+//        var lines = students.Values.Select(s =>
+//        {
+//            var grades = string.Join(";", s.Grades.Select(g => $"{g.Key};{g.Value}"));
+//            return $"{s.Id};{s.Name};{grades}";
+//        });
+
+//        File.WriteAllLines(dataFilePath, lines);
+//    }
+
+//    static void ViewStudents()
+//    {
+//        Console.Clear();
+//        Console.WriteLine("Список студентов:");
+//        foreach (var student in students.Values)
+//        {
+//            Console.WriteLine($"ID: {student.Id}, Имя: {student.Name}");
+//            foreach (var grade in student.Grades)
+//            {
+//                Console.WriteLine($"  {grade.Key}: {grade.Value}");
+//            }
+//        }
+//        Console.WriteLine("Нажмите любую клавишу для продолжения...");
+//        Console.ReadKey();
+//    }
+
+//    static void AddStudent()
+//    {
+//        Console.Clear();
+//        Console.Write("Введите ID студента: ");
+//        var id = Console.ReadLine();
+//        if (students.ContainsKey(id))
+//        {
+//            Console.WriteLine("Студент с таким ID уже существует.");
+//            return;
+//        }
+
+//        Console.Write("Введите имя студента: ");
+//        var name = Console.ReadLine();
+//        students[id] = new Student { Id = id, Name = name };
+//        Console.WriteLine("Студент добавлен.");
+//        Console.ReadKey();
+//    }
+
+//    static void AddGrade()
+//    {
+//        Console.Clear();
+//        Console.Write("Введите ID студента: ");
+//        var id = Console.ReadLine();
+
+//        if (!students.ContainsKey(id))
+//        {
+//            Console.WriteLine("Студент с таким ID не найден.");
+//            return;
+//        }
+
+//        var student = students[id];
+//        Console.Write("Введите предмет: ");
+//        var subject = Console.ReadLine();
+//        Console.Write("Введите оценку: ");
+//        if (int.TryParse(Console.ReadLine(), out int grade))
+//        {
+//            student.Grades[subject] = grade;
+//            Console.WriteLine("Оценка добавлена.");
+//        }
+//        else
+//        {
+//            Console.WriteLine("Неверная оценка.");
+//        }
+//        Console.ReadKey();
+//    }
+
+//    static void RemoveStudent()
+//    {
+//        Console.Clear();
+//        Console.Write("Введите ID студента для удаления: ");
+//        var id = Console.ReadLine();
+
+//        if (students.Remove(id))
+//        {
+//            Console.WriteLine("Студент удален.");
+//        }
+//        else
+//        {
+//            Console.WriteLine("Студент с таким ID не найден.");
+//        }
+//        Console.ReadKey();
+//    }
+//}
+
+//class Student
+//{
+//    public string Id { get; set; }
+//    public string Name { get; set; }
+//    public Dictionary<string, int> Grades { get; set; } = new Dictionary<string, int>();
+//}
 
 
