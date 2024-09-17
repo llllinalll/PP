@@ -2437,4 +2437,735 @@
 //    public DateTime DueTime { get; set; }
 //    public bool IsNotified { get; set; } = false;
 //}
+//48 Закдание
+
+//using System;
+//using System.Collections.Generic;
+//using System.Linq;
+
+//namespace SalesAnalysisApp
+//{
+//    // Класс для представления товара
+//    public class Product
+//    {
+//        public string Name { get; set; }
+//        public decimal Price { get; set; }
+
+//        public Product(string name, decimal price)
+//        {
+//            Name = name;
+//            Price = price;
+//        }
+//    }
+
+//    // Класс для представления продажи
+//    public class Sale
+//    {
+//        public Product Product { get; set; }
+//        public int Quantity { get; set; }
+
+//        public Sale(Product product, int quantity)
+//        {
+//            Product = product;
+//            Quantity = quantity;
+//        }
+//    }
+
+//    // Класс для анализа данных о продажах
+//    public class SalesAnalyzer
+//    {
+//        private List<Sale> _sales;
+
+//        public SalesAnalyzer(List<Sale> sales)
+//        {
+//            _sales = sales;
+//        }
+
+//        // Метод для вывода статистики по продажам
+//        public void PrintStatistics()
+//        {
+//            var productSales = _sales.GroupBy(sale => sale.Product)
+//                                     .Select(group => new
+//                                     {
+//                                         Product = group.Key,
+//                                         TotalQuantity = group.Sum(sale => sale.Quantity),
+//                                         TotalRevenue = group.Sum(sale => sale.Quantity * sale.Product.Price)
+//                                     });
+
+//            Console.WriteLine("Статистика продаж:");
+//            foreach (var productSale in productSales)
+//            {
+//                Console.WriteLine($"Продукт: {productSale.Product.Name}");
+//                Console.WriteLine($"Общее количество проданных товаров: {productSale.TotalQuantity}");
+//                Console.WriteLine($"Общий доход: {productSale.TotalRevenue:C}");
+//                Console.WriteLine();
+//            }
+
+//            decimal totalRevenue = productSales.Sum(ps => ps.TotalRevenue);
+//            Console.WriteLine($"Общий доход от всех продуктов: {totalRevenue:C}");
+//        }
+//    }
+
+//    // Основной класс программы
+//    class Program
+//    {
+//        static void Main()
+//        {
+//            // Создаем продукты
+//            var product1 = new Product("Виджет", 19.99m);
+//            var product2 = new Product("Устройство", 29.99m);
+
+//            // Создаем продажи
+//            var sales = new List<Sale>
+//            {
+//                new Sale(product1, 3),
+//                new Sale(product2, 2),
+//                new Sale(product1, 1),
+//                new Sale(product2, 4)
+//            };
+
+//            // Анализируем продажи
+//            var analyzer = new SalesAnalyzer(sales);
+//            analyzer.PrintStatistics();
+//        }
+//    }
+//}
+
+
+//49 Задание
+
+//using System;
+//using System.Threading;
+
+//namespace HangmanGame
+//{
+//    struct Game
+//    {
+//        public string Word;
+//        public char[] Stars;
+//        public int WrongAttempts;
+//    }
+
+//    internal class Program
+//    {
+//        private static Game game;
+//        private static readonly string[] HangmanStages =
+//        {
+//            @"
+//                  |
+//                  |
+//                  |
+//                  |
+//                  |
+//            ",
+//            @"
+//             ------
+//                  |
+//                  |
+//                  |
+//                  |
+//                  |
+//            ",
+//            @"
+//             ------
+//                  |
+//                  |
+//                  |
+//                  |
+//                  |
+//            ",
+//            @"
+//             ------
+//             |    |
+//             O    |
+//                  |
+//                  |
+//                  |
+//            ",
+//            @"
+//             ------
+//             |    |
+//             O    |
+//             |    |
+//                  |
+//                  |
+//            ",
+//            @"
+//             ------
+//             |    |
+//             O    |
+//            /|\   |
+//                  |
+//                  |
+//            ",
+//            @"
+//             ------
+//             |    |
+//             O    |
+//            /|\   |
+//            / \   |
+//                  |
+//            "
+//        };
+
+//        private static void Main(string[] args)
+//        {
+//            const int maxWrongAttempts = 6;
+
+//            Console.Write("Введите слово: ");
+//            string inputWord = Console.ReadLine().ToLower();
+//            game.Word = inputWord;
+//            game.Stars = new string('*', inputWord.Length).ToCharArray();
+//            game.WrongAttempts = 0;
+
+//            char guessedLetter = ' ';
+//            Thread displayThread = new Thread(() =>
+//            {
+//                while (true)
+//                {
+//                    Console.Clear();
+//                    Console.WriteLine(new string('-', 30));
+//                    DisplayHangman(game.WrongAttempts);
+//                    Console.WriteLine("Загаданное слово: " + string.Join("", game.Stars));
+//                    Console.WriteLine(new string('-', 30));
+//                    Console.WriteLine("Количество попыток: {0}, У Вас еще осталось: {1}",
+//                        game.WrongAttempts, maxWrongAttempts - game.WrongAttempts);
+
+//                    if (game.Word.Equals(string.Join("", game.Stars)))
+//                    {
+//                        Console.WriteLine("Поздравляю! Вы выиграли!");
+//                        return;
+//                    }
+
+//                    if (game.WrongAttempts == maxWrongAttempts)
+//                    {
+//                        Console.WriteLine("Вы проиграли! Загаданное слово было: " + game.Word);
+//                        return;
+//                    }
+
+//                    Thread.Sleep(200);
+//                }
+//            });
+//            displayThread.Start();
+
+//            Thread inputThread = new Thread(() =>
+//            {
+//                while (true)
+//                {
+//                    guessedLetter = Char.ToLower(Console.ReadKey(true).KeyChar);
+//                    if (!game.Word.Contains(guessedLetter))
+//                    {
+//                        game.WrongAttempts++;
+//                    }
+//                    else
+//                    {
+//                        UpdateWord(guessedLetter);
+//                    }
+//                }
+//            });
+//            inputThread.IsBackground = true;
+//            inputThread.Start();
+//            Console.ReadKey(true);
+//        }
+
+//        static void UpdateWord(char letter)
+//        {
+//            for (int i = 0; i < game.Word.Length; i++)
+//            {
+//                if (game.Word[i] == letter)
+//                {
+//                    game.Stars[i] = letter;
+//                }
+//            }
+//        }
+
+//        static void DisplayHangman(int wrongAttempts)
+//        {
+//            if (wrongAttempts >= 0 && wrongAttempts < HangmanStages.Length)
+//            {
+//                Console.WriteLine(HangmanStages[wrongAttempts]);
+//            }
+//        }
+//    }
+//}
+
+
+//50 Задание
+
+//using System;
+//using System.Collections.Generic;
+//using System.Linq;
+
+//namespace SurveyApp
+//{
+//    // Модели данных
+
+//    // Класс, представляющий опрос
+//    public class Survey
+//    {
+//        public string Title { get; set; } // Заголовок опроса
+//        public List<Question> Questions { get; set; } = new List<Question>(); // Список вопросов
+//    }
+
+//    // Класс, представляющий вопрос
+//    public class Question
+//    {
+//        public string Text { get; set; } // Текст вопроса
+//        public List<AnswerOption> AnswerOptions { get; set; } = new List<AnswerOption>(); // Варианты ответов
+//    }
+
+//    // Класс, представляющий вариант ответа
+//    public class AnswerOption
+//    {
+//        public string OptionText { get; set; } // Текст варианта ответа
+//        public int Count { get; set; } // Количество голосов
+//    }
+
+//    // Сервисный класс для управления опросами
+//    public class SurveyService
+//    {
+//        private List<Survey> surveys = new List<Survey>(); // Список опросов
+
+//        // Создание нового опроса
+//        public Survey CreateSurvey(string title)
+//        {
+//            var survey = new Survey { Title = title };
+//            surveys.Add(survey);
+//            return survey;
+//        }
+
+//        // Добавление вопроса в опрос
+//        public void AddQuestion(Survey survey, string questionText, List<string> options)
+//        {
+//            var question = new Question { Text = questionText };
+//            question.AnswerOptions.AddRange(options.Select(option => new AnswerOption { OptionText = option, Count = 0 }));
+//            survey.Questions.Add(question);
+//        }
+
+//        // Добавление ответа к вопросу
+//        public void AddAnswer(Survey survey, string questionText, string answerText)
+//        {
+//            var question = survey.Questions.FirstOrDefault(q => q.Text == questionText);
+//            var answerOption = question?.AnswerOptions.FirstOrDefault(a => a.OptionText == answerText);
+//            if (answerOption != null)
+//            {
+//                answerOption.Count++;
+//            }
+//        }
+
+//        // Вывод результатов опроса
+//        public void PrintSurveyResults(Survey survey)
+//        {
+//            Console.WriteLine($"Опрос: {survey.Title}");
+//            foreach (var question in survey.Questions)
+//            {
+//                Console.WriteLine($"Вопрос: {question.Text}");
+//                foreach (var option in question.AnswerOptions)
+//                {
+//                    Console.WriteLine($"Вариант: {option.OptionText} - {option.Count} голосов");
+//                }
+//            }
+//        }
+
+//        // Поиск опроса по заголовку
+//        public Survey FindSurveyByTitle(string title)
+//        {
+//            return surveys.FirstOrDefault(s => s.Title == title);
+//        }
+//    }
+
+//    // Основная программа
+//    class Program
+//    {
+//        static void Main(string[] args)
+//        {
+//            var surveyService = new SurveyService();
+
+//            while (true)
+//            {
+//                Console.Clear();
+//                Console.WriteLine("Приложение для опросов");
+//                Console.WriteLine("1. Создать опрос");
+//                Console.WriteLine("2. Добавить вопрос в опрос");
+//                Console.WriteLine("3. Ответить на опрос");
+//                Console.WriteLine("4. Просмотреть результаты опроса");
+//                Console.WriteLine("5. Выход");
+//                Console.Write("Выберите опцию: ");
+//                var option = Console.ReadLine();
+
+//                switch (option)
+//                {
+//                    case "1":
+//                        CreateSurvey(surveyService);
+//                        break;
+//                    case "2":
+//                        AddQuestion(surveyService);
+//                        break;
+//                    case "3":
+//                        AnswerSurvey(surveyService);
+//                        break;
+//                    case "4":
+//                        ViewSurveyResults(surveyService);
+//                        break;
+//                    case "5":
+//                        return;
+//                    default:
+//                        Console.WriteLine("Неверный выбор. Попробуйте снова.");
+//                        break;
+//                }
+//            }
+//        }
+
+//        // Создание нового опроса
+//        static void CreateSurvey(SurveyService surveyService)
+//        {
+//            Console.Write("Введите заголовок опроса: ");
+//            var title = Console.ReadLine();
+//            surveyService.CreateSurvey(title);
+//            Console.WriteLine("Опрос успешно создан!");
+//            Console.ReadKey();
+//        }
+
+//        // Добавление вопроса в опрос
+//        static void AddQuestion(SurveyService surveyService)
+//        {
+//            Console.Write("Введите заголовок опроса, в который хотите добавить вопрос: ");
+//            var title = Console.ReadLine();
+//            var survey = surveyService.FindSurveyByTitle(title);
+//            if (survey == null)
+//            {
+//                Console.WriteLine("Опрос не найден.");
+//                Console.ReadKey();
+//                return;
+//            }
+
+//            Console.Write("Введите текст вопроса: ");
+//            var questionText = Console.ReadLine();
+//            Console.WriteLine("Введите варианты ответов (разделите варианты запятыми): ");
+//            var options = Console.ReadLine().Split(',').Select(o => o.Trim()).ToList();
+//            surveyService.AddQuestion(survey, questionText, options);
+//            Console.WriteLine("Вопрос успешно добавлен!");
+//            Console.ReadKey();
+//        }
+
+//        // Ответ на опрос
+//        static void AnswerSurvey(SurveyService surveyService)
+//        {
+//            Console.Write("Введите заголовок опроса, на который хотите ответить: ");
+//            var title = Console.ReadLine();
+//            var survey = surveyService.FindSurveyByTitle(title);
+//            if (survey == null)
+//            {
+//                Console.WriteLine("Опрос не найден.");
+//                Console.ReadKey();
+//                return;
+//            }
+
+//            Console.WriteLine("Доступные вопросы:");
+//            for (int i = 0; i < survey.Questions.Count; i++)
+//            {
+//                Console.WriteLine($"{i + 1}. {survey.Questions[i].Text}");
+//            }
+
+//            Console.Write("Выберите вопрос по номеру: ");
+//            if (int.TryParse(Console.ReadLine(), out int questionNumber) && questionNumber > 0 && questionNumber <= survey.Questions.Count)
+//            {
+//                var question = survey.Questions[questionNumber - 1];
+//                Console.WriteLine("Доступные варианты ответов:");
+//                for (int i = 0; i < question.AnswerOptions.Count; i++)
+//                {
+//                    Console.WriteLine($"{i + 1}. {question.AnswerOptions[i].OptionText}");
+//                }
+
+//                Console.Write("Выберите ответ по номеру: ");
+//                if (int.TryParse(Console.ReadLine(), out int answerNumber) && answerNumber > 0 && answerNumber <= question.AnswerOptions.Count)
+//                {
+//                    var answerOption = question.AnswerOptions[answerNumber - 1];
+//                    surveyService.AddAnswer(survey, question.Text, answerOption.OptionText);
+//                    Console.WriteLine("Ответ успешно записан!");
+//                }
+//                else
+//                {
+//                    Console.WriteLine("Неверный номер ответа.");
+//                }
+//            }
+//            else
+//            {
+//                Console.WriteLine("Неверный номер вопроса.");
+//            }
+//            Console.ReadKey();
+//        }
+
+//        // Просмотр результатов опроса
+//        static void ViewSurveyResults(SurveyService surveyService)
+//        {
+//            Console.Write("Введите заголовок опроса, результаты которого хотите просмотреть: ");
+//            var title = Console.ReadLine();
+//            var survey = surveyService.FindSurveyByTitle(title);
+//            if (survey != null)
+//            {
+//                surveyService.PrintSurveyResults(survey);
+//            }
+//            else
+//            {
+//                Console.WriteLine("Опрос не найден.");
+//            }
+//            Console.ReadKey();
+//        }
+//    }
+//}
+
+
+//51 Задание
+
+//using CsvHelper;
+//using CsvHelper.Configuration;
+//using System;
+//using System.Collections.Generic;
+//using System.Globalization;
+//using System.IO;
+//using System.Linq;
+
+//public class WeatherData
+//{
+//    public DateTime Date { get; set; }
+//    public double Temperature { get; set; }
+//    public double Precipitation { get; set; }
+//}
+
+//class Program
+//{
+//    static void Main(string[] args)
+//    {
+//        var filePath = "data.csv"; // Укажите путь к вашему CSV-файлу
+
+//        // Считать данные из CSV-файла
+//        var weatherData = ReadWeatherData(filePath);
+
+//        // Рассчитать и вывести статистику по месяцам
+//        var monthlyStats = weatherData
+//            .GroupBy(data => new { data.Date.Year, data.Date.Month })
+//            .Select(group => new
+//            {
+//                Year = group.Key.Year,
+//                Month = group.Key.Month,
+//                AverageTemperature = group.Average(data => data.Temperature),
+//                TotalPrecipitation = group.Sum(data => data.Precipitation)
+//            });
+
+//        foreach (var stat in monthlyStats)
+//        {
+//            Console.WriteLine($"Year: {stat.Year}, Month: {stat.Month}");
+//            Console.WriteLine($"  Average Temperature: {stat.AverageTemperature:F2} °C");
+//            Console.WriteLine($"  Total Precipitation: {stat.TotalPrecipitation:F2} mm");
+//            Console.WriteLine();
+//        }
+//    }
+
+//    private static IEnumerable<WeatherData> ReadWeatherData(string filePath)
+//    {
+//        using (var reader = new StreamReader(filePath))
+//        using (var csv = new CsvReader(reader, new CsvConfiguration(CultureInfo.InvariantCulture)))
+//        {
+//            return csv.GetRecords<WeatherData>().ToList();
+//        }
+//    }
+//}
+
+//52 Задание 
+
+//using System;
+//using System.Collections.Generic;
+//using System.Linq;
+
+//namespace LibraryManagement
+//{
+//    // Класс для представления книги
+//    public class Book
+//    {
+//        public int Id { get; set; } // Идентификатор книги
+//        public string Title { get; set; } // Заголовок книги
+//        public string Author { get; set; } // Автор книги
+//        public string ISBN { get; set; } // ISBN книги
+
+//        // Переопределение метода ToString для удобного отображения информации о книге
+//        public override string ToString()
+//        {
+//            return $"ID: {Id}, Заголовок: {Title}, Автор: {Author}, ISBN: {ISBN}";
+//        }
+//    }
+
+//    // Класс для управления книгами
+//    public class Library
+//    {
+//        private List<Book> books = new List<Book>(); // Список книг
+//        private int nextId = 1; // Следующий доступный ID
+
+//        // Метод для добавления книги
+//        public void AddBook(string title, string author, string isbn)
+//        {
+//            books.Add(new Book
+//            {
+//                Id = nextId++,
+//                Title = title,
+//                Author = author,
+//                ISBN = isbn
+//            });
+//            Console.WriteLine("Книга успешно добавлена.");
+//        }
+
+//        // Метод для удаления книги по ID
+//        public void RemoveBook(int id)
+//        {
+//            var book = books.FirstOrDefault(b => b.Id == id);
+//            if (book != null)
+//            {
+//                books.Remove(book);
+//                Console.WriteLine("Книга успешно удалена.");
+//            }
+//            else
+//            {
+//                Console.WriteLine("Книга не найдена.");
+//            }
+//        }
+
+//        // Метод для редактирования книги
+//        public void EditBook(int id, string title, string author, string isbn)
+//        {
+//            var book = books.FirstOrDefault(b => b.Id == id);
+//            if (book != null)
+//            {
+//                book.Title = title;
+//                book.Author = author;
+//                book.ISBN = isbn;
+//                Console.WriteLine("Книга успешно обновлена.");
+//            }
+//            else
+//            {
+//                Console.WriteLine("Книга не найдена.");
+//            }
+//        }
+
+//        // Метод для поиска книг по заголовку
+//        public void SearchBooks(string title)
+//        {
+//            var result = books.Where(b => b.Title.IndexOf(title, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
+//            if (result.Any())
+//            {
+//                foreach (var book in result)
+//                {
+//                    Console.WriteLine(book);
+//                }
+//            }
+//            else
+//            {
+//                Console.WriteLine("Книги не найдены.");
+//            }
+//        }
+
+//        // Метод для вывода списка всех книг
+//        public void ListAllBooks()
+//        {
+//            if (books.Any())
+//            {
+//                foreach (var book in books)
+//                {
+//                    Console.WriteLine(book);
+//                }
+//            }
+//            else
+//            {
+//                Console.WriteLine("Нет доступных книг.");
+//            }
+//        }
+//    }
+
+//    // Главный класс программы
+//    class Program
+//    {
+//        static void Main(string[] args)
+//        {
+//            Library library = new Library(); // Создание экземпляра библиотеки
+
+//            while (true)
+//            {
+//                Console.WriteLine("\nСистема управления библиотекой");
+//                Console.WriteLine("1. Добавить книгу");
+//                Console.WriteLine("2. Удалить книгу");
+//                Console.WriteLine("3. Редактировать книгу");
+//                Console.WriteLine("4. Найти книги");
+//                Console.WriteLine("5. Вывести список всех книг");
+//                Console.WriteLine("6. Выйти");
+
+//                var choice = Console.ReadLine(); // Чтение выбора пользователя
+//                switch (choice)
+//                {
+//                    case "1":
+//                        // Добавление книги
+//                        Console.Write("Введите заголовок: ");
+//                        string title = Console.ReadLine();
+//                        Console.Write("Введите автора: ");
+//                        string author = Console.ReadLine();
+//                        Console.Write("Введите ISBN: ");
+//                        string isbn = Console.ReadLine();
+//                        library.AddBook(title, author, isbn);
+//                        break;
+
+//                    case "2":
+//                        // Удаление книги
+//                        Console.Write("Введите ID книги для удаления: ");
+//                        if (int.TryParse(Console.ReadLine(), out int removeId))
+//                        {
+//                            library.RemoveBook(removeId);
+//                        }
+//                        else
+//                        {
+//                            Console.WriteLine("Неверный ID.");
+//                        }
+//                        break;
+
+//                    case "3":
+//                        // Редактирование книги
+//                        Console.Write("Введите ID книги для редактирования: ");
+//                        if (int.TryParse(Console.ReadLine(), out int editId))
+//                        {
+//                            Console.Write("Введите новый заголовок: ");
+//                            string newTitle = Console.ReadLine();
+//                            Console.Write("Введите нового автора: ");
+//                            string newAuthor = Console.ReadLine();
+//                            Console.Write("Введите новый ISBN: ");
+//                            string newIsbn = Console.ReadLine();
+//                            library.EditBook(editId, newTitle, newAuthor, newIsbn);
+//                        }
+//                        else
+//                        {
+//                            Console.WriteLine("Неверный ID.");
+//                        }
+//                        break;
+
+//                    case "4":
+//                        // Поиск книг
+//                        Console.Write("Введите заголовок для поиска: ");
+//                        string searchTitle = Console.ReadLine();
+//                        library.SearchBooks(searchTitle);
+//                        break;
+
+//                    case "5":
+//                        // Вывод списка всех книг
+//                        library.ListAllBooks();
+//                        break;
+
+//                    case "6":
+//                        // Выход из программы
+//                        return;
+
+//                    default:
+//                        Console.WriteLine("Неверный выбор. Пожалуйста, введите число от 1 до 6.");
+//                        break;
+//                }
+//            }
+//        }
+//    }
+//}
+
 
