@@ -2091,6 +2091,295 @@
 //    }
 //}
 
+//43 Задание
+
+//using System;
+//using System.Collections.Generic;
+//using System.Linq;
+//using System.Threading;
+
+//class SnakeGame
+//{
+//    static int screenWidth = 20;
+//    static int screenHeight = 10;
+//    static List<Point> snake = new List<Point>();
+//    static Point food;
+//    static Point specialFood; // New special food item ("?")
+//    static Point direction;
+//    static Random random = new Random();
+//    static bool gameRunning = true;
+//    static int score = 0;
+//    static string playerName;
+//    static List<int> highScores = new List<int>();
+//    static bool godMode = false; // God Mode flag
+//    static DateTime lastFoodTime; // Track the last time special food was eaten
+//    static TimeSpan foodTimeout = TimeSpan.FromMinutes(1); // Time limit to eat special food
+
+//    static void Main()
+//    {
+//        Console.CursorVisible = false;
+//        Console.Write("Введите ваше имя: ");
+//        playerName = Console.ReadLine();
+
+//        // Load high scores from file if exists 
+//        LoadHighScores();
+
+//        do
+//        {
+//            InitializeGame();
+//            while (gameRunning)
+//            {
+//                Input();
+//                Logic();
+//                Draw();
+//                Thread.Sleep(500); // Adjust speed of the game 
+//            }
+
+//            Console.SetCursorPosition(0, screenHeight + 1);
+//            Console.WriteLine($"Игра окончена! Ваш счет: {score}");
+//            UpdateHighScores(score);
+
+//            // Display high scores 
+//            Console.WriteLine("Текущие рекорды:");
+//            DisplayHighScores();
+
+//            Console.WriteLine("Нажмите любую клавишу для начала новой игры или Esc для выхода.");
+//        }
+//        while (Console.ReadKey(true).Key != ConsoleKey.Escape);
+
+//        SaveHighScores();
+//    }
+
+//    static void InitializeGame()
+//    {
+//        snake.Clear();
+//        snake.Add(new Point(screenWidth / 2, screenHeight / 2));
+//        direction = new Point(1, 0);
+//        food = GenerateFood();
+//        specialFood = GenerateSpecialFood(); // Initialize special food
+//        lastFoodTime = DateTime.Now; // Set initial time
+//        score = 0;
+//        gameRunning = true;
+//    }
+
+//    static void Input()
+//    {
+//        if (Console.KeyAvailable)
+//        {
+//            var key = Console.ReadKey(true).Key;
+//            if (key == ConsoleKey.G) // Toggle God Mode
+//            {
+//                godMode = !godMode;
+//                Console.SetCursorPosition(0, screenHeight + 2);
+//                Console.WriteLine($"God Mode: {(godMode ? "ON" : "OFF")}");
+//            }
+//            else
+//            {
+//                switch (key)
+//                {
+//                    case ConsoleKey.UpArrow:
+//                        if (direction.Y == 0) direction = new Point(0, -1);
+//                        break;
+//                    case ConsoleKey.DownArrow:
+//                        if (direction.Y == 0) direction = new Point(0, 1);
+//                        break;
+//                    case ConsoleKey.LeftArrow:
+//                        if (direction.X == 0) direction = new Point(-1, 0);
+//                        break;
+//                    case ConsoleKey.RightArrow:
+//                        if (direction.X == 0) direction = new Point(1, 0);
+//                        break;
+//                }
+//            }
+//        }
+//    }
+
+//    static void Logic()
+//    {
+//        Point head = snake.First();
+//        Point newHead = new Point(head.X + direction.X, head.Y + direction.Y);
+
+//        // Handle wrap-around in God Mode
+//        if (godMode)
+//        {
+//            if (newHead.X < 0) newHead.X = screenWidth - 1;
+//            if (newHead.X >= screenWidth) newHead.X = 0;
+//            if (newHead.Y < 0) newHead.Y = screenHeight - 1;
+//            if (newHead.Y >= screenHeight) newHead.Y = 0;
+//        }
+//        else
+//        {
+//            if (newHead.X < 0 || newHead.X >= screenWidth || newHead.Y < 0 || newHead.Y >= screenHeight)
+//            {
+//                gameRunning = false;
+//                return;
+//            }
+//        }
+
+//        if (newHead.Equals(food))
+//        {
+//            snake.Insert(0, newHead);
+//            food = GenerateFood();
+//            score += 10; // Increase score when food is eaten 
+//        }
+//        else if (newHead.Equals(specialFood))
+//        {
+//            snake.Insert(0, newHead);
+//            specialFood = GenerateSpecialFood();
+//            lastFoodTime = DateTime.Now; // Update the last time special food was eaten
+//            score += 50; // Increase score more for special food
+//        }
+//        else
+//        {
+//            snake.Insert(0, newHead);
+//            snake.RemoveAt(snake.Count - 1);
+//        }
+
+//        if (!godMode && snake.Skip(1).Any(p => p.Equals(newHead)))
+//        {
+//            gameRunning = false;
+//        }
+
+//        // Check if the snake should shrink
+//        if (DateTime.Now - lastFoodTime > foodTimeout)
+//        {
+//            if (snake.Count > 1)
+//            {
+//                snake.RemoveAt(snake.Count - 1);
+//                lastFoodTime = DateTime.Now; // Reset the timer after shrinking
+//            }
+//        }
+//    }
+
+//    static void Draw()
+//    {
+//        Console.Clear();
+
+//        // Draw grid 
+//        DrawGrid();
+
+//        // Draw snake 
+//        foreach (var point in snake)
+//        {
+//            Console.SetCursorPosition(point.X * 2 + 1, point.Y + 1);
+//            Console.Write("■");
+//        }
+
+//        // Draw food 
+//        Console.SetCursorPosition(food.X * 2 + 1, food.Y + 1);
+//        Console.Write("●");
+
+//        // Draw special food
+//        Console.SetCursorPosition(specialFood.X * 2 + 1, specialFood.Y + 1);
+//        Console.Write("?");
+//    }
+
+//    static void DrawGrid()
+//    {
+//        for (int y = 0; y < screenHeight; y++)
+//        {
+//            for (int x = 0; x < screenWidth; x++)
+//            {
+//                Console.SetCursorPosition(x * 2, y + 1);
+//                Console.Write("┼");
+//            }
+//        }
+
+//        // Draw top border 
+//        Console.SetCursorPosition(0, 0);
+//        Console.Write("┌" + new string('─', screenWidth * 2 - 1) + "┐");
+
+//        // Draw bottom border 
+//        Console.SetCursorPosition(0, screenHeight + 1);
+//        Console.Write("└" + new string('─', screenWidth * 2 - 1) + "┘");
+
+//        // Draw side borders 
+//        for (int y = 1; y <= screenHeight; y++)
+//        {
+//            Console.SetCursorPosition(0, y);
+//            Console.Write("│");
+//            Console.SetCursorPosition(screenWidth * 2, y);
+//            Console.Write("│");
+//        }
+//    }
+
+//    static Point GenerateFood()
+//    {
+//        Point newFood;
+//        do
+//        {
+//            newFood = new Point(random.Next(screenWidth), random.Next(screenHeight));
+//        } while (snake.Contains(newFood) || newFood.Equals(specialFood)); // Ensure food doesn't overlap special food
+//        return newFood;
+//    }
+
+//    static Point GenerateSpecialFood()
+//    {
+//        Point newSpecialFood;
+//        do
+//        {
+//            newSpecialFood = new Point(random.Next(screenWidth), random.Next(screenHeight));
+//        } while (snake.Contains(newSpecialFood) || newSpecialFood.Equals(food)); // Ensure special food doesn't overlap normal food
+//        return newSpecialFood;
+//    }
+
+//    static void UpdateHighScores(int score)
+//    {
+//        highScores.Add(score);
+//        highScores = highScores.OrderByDescending(s => s).Take(5).ToList(); // Keep top 5 scores 
+//    }
+
+//    static void DisplayHighScores()
+//    {
+//        for (int i = 0; i < highScores.Count; i++)
+//        {
+//            Console.WriteLine($"{i + 1}. {highScores[i]}");
+//        }
+//    }
+
+//    static void LoadHighScores()
+//    {
+//        string filePath = "highscores.txt";
+//        if (System.IO.File.Exists(filePath))
+//        {
+//            string[] lines = System.IO.File.ReadAllLines(filePath);
+//            highScores = lines.Select(line => int.Parse(line)).ToList();
+//        }
+//    }
+
+//    static void SaveHighScores()
+//    {
+//        string filePath = "highscores.txt";
+//        System.IO.File.WriteAllLines(filePath, highScores.Select(score => score.ToString()));
+//    }
+
+//    struct Point
+//    {
+//        public int X;
+//        public int Y;
+
+//        public Point(int x, int y)
+//        {
+//            X = x;
+//            Y = y;
+//        }
+
+//        public override bool Equals(object obj)
+//        {
+//            if (obj is Point p)
+//            {
+//                return X == p.X && Y == p.Y;
+//            }
+//            return false;
+//        }
+
+//        public override int GetHashCode()
+//        {
+//            return X.GetHashCode() ^ Y.GetHashCode();
+//        }
+//    }
+//}
+
 
 // 44 Задание
 
